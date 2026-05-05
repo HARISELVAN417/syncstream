@@ -4,12 +4,14 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://hariselvan.vercel.app"
+}));
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: { origin: "*" }
+  cors: { origin: "https://hariselvan.vercel.app" }
 });
 
 let rooms = {};
